@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Alex Guerrieri ">
+<meta name="description"
+    content="AWS owns the repository aws/aws-sdk-go, the Go version for its own API. There are several 3rd party libraries for many of the services that it offers, but there are some advantages in using the former:
+ it&amp;rsquo;s maintained by AWS itself it offers the most complete set of services (all of them) it&amp;rsquo;s created programmatically from AWS API, so it&amp;rsquo;s less prone to human error it&amp;rsquo;s always up to date with the latest API changes  Also:" />
+<meta name="keywords" content="homepage, blog, software, programming, golang" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://klaidliadon.dev/blog/2017/08/aws-and-go/" />
+
+
+<title>
+    
+    AWS and Go :: Warriors &gt; Code 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://klaidliadon.dev/main.min.6a7f69da285b13ff0649efbb10da7b227afef741e84872f120da910fc3f9c8e8.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://klaidliadon.dev/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://klaidliadon.dev/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://klaidliadon.dev/favicon-16x16.png">
+<link rel="manifest" href="https://klaidliadon.dev/site.webmanifest">
+<link rel="mask-icon" href="https://klaidliadon.dev/safari-pinned-tab.svg" color="#222222">
+<link rel="shortcut icon" href="https://klaidliadon.dev/favicon.ico">
+<meta name="msapplication-TileColor" content="#222222">
+<meta name="theme-color" content="#ffffff">
+<meta itemprop="name" content="AWS and Go">
+<meta itemprop="description" content="Using AWS in your Go applications">
+
+
+<meta itemprop="datePublished" content="2017-08-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-08-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="854">
+
+
+
+<meta itemprop="keywords" content="aws,go," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://klaidliadon.dev"/>
+
+<meta name="twitter:title" content="AWS and Go"/>
+<meta name="twitter:description" content="Using AWS in your Go applications"/>
+
+
+
+<meta property="article:section" content="tutorial" />
+
+<meta property="article:published_time" content="2017-08-07 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://klaidliadon.dev/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/klaid</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://klaidliadon.dev/about/">About</a></li><li><a href="https://klaidliadon.dev/blog/">Blog</a></li><li><a href="https://klaidliadon.dev/pkg/">Pkgs</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://klaidliadon.dev/blog/2017/08/aws-and-go/">AWS and Go</a></h2>
+
+            
+
+            <div class="post-content">
+                
+
+<p>AWS owns the repository <a href="http://github.com/aws/aws-sdk-go" target="_blank">aws/aws-sdk-go</a>, the Go version for its own API.
+There are several 3rd party libraries for many of the services that it offers, but there are some advantages in using the former:</p>
+
+<ul>
+<li>it&rsquo;s maintained by AWS itself</li>
+<li>it offers the most complete set of services (all of them)</li>
+<li>it&rsquo;s created programmatically from AWS API, so it&rsquo;s less prone to human error</li>
+<li>it&rsquo;s always up to date with the latest API changes</li>
+</ul>
+
+<p>Also:</p>
+
+<ul>
+<li>there&rsquo;s a dedicated <a href="https://gitter.im/aws/aws-sdk-go" target="_blank">Gitter chat</a></li>
+<li>and a tag for <a href="http://stackoverflow.com/questions/tagged/aws-sdk-go" target="_blank">Stack Overflow</a></li>
+</ul>
+
+<h2 id="credentials">Credentials</h2>
+
+<p>The first step in order to use AWS with Go is creating an user for your use case using <a href="https://aws.amazon.com/documentation/iam/" target="_blank">IAM</a>, and create an access key for that user.
+This will produce an access key and a secret that you will need in order to access the services.</p>
+
+<p>The package requires that both values are stored in two environmental variables <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code>.
+You can choose to store this variable in your environment directly or you can read them from a configuration file and set them
+in the Go runtime directly, or you can use the <a href="http://docs.aws.amazon.com/sdk-for-go/api/aws/credentials/#NewStaticCredentials" target="_blank">NewStaticCredentials</a> function in your configuration:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;github.com/aws/aws-sdk-go/aws&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/aws/aws-sdk-go/aws/credentials&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/aws/aws-sdk-go/aws/endpoints&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/aws/aws-sdk-go/aws/session&#34;</span>
+)
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">config</span> <span style="color:#66d9ef">struct</span> { <span style="color:#a6e22e">AccessKeyID</span>, <span style="color:#a6e22e">SecretAccessKey</span> <span style="color:#66d9ef">string</span> }
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">Session</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() { 
+	<span style="color:#75715e">// Load Configuration
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// Environment
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Setenv</span>(<span style="color:#e6db74">&#34;AWS_ACCESS_KEY_ID&#34;</span>, <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">AccessKeyID</span>)
+	<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Setenv</span>(<span style="color:#e6db74">&#34;AWS_SECRET_ACCESS_KEY&#34;</span>, <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">SecretAccessKey</span>)
+	<span style="color:#a6e22e">s</span> = <span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">New</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">Config</span>{
+		<span style="color:#a6e22e">Region</span>: <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">endpoints</span>.<span style="color:#a6e22e">EuWest1RegionID</span>),
+	})
+	<span style="color:#75715e">// OR
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s</span> = <span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">New</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">Config</span>{
+		<span style="color:#a6e22e">Region</span>: <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">endpoints</span>.<span style="color:#a6e22e">EuWest1RegionID</span>),
+		<span style="color:#a6e22e">Credentials</span>: <span style="color:#a6e22e">credentials</span>.<span style="color:#a6e22e">NewStaticCredentials</span>(
+			<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">AccessKeyID</span>, 
+			<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">SecretAccessKey</span>,
+			<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#75715e">// a token will be created when the session it&#39;s used.
+</span><span style="color:#75715e"></span>		),
+	})
+}</code></pre></div>
+<p>If you want to have the same credentials in your instances and in all the AWS clients it&rsquo;s a good idea to use the
+environment variables, instead if you planning on specific keys for each client/instance the second choice is more reasonable.</p>
+
+<h2 id="sample-usage-video-storage">Sample usage: video storage</h2>
+
+<p>Amazon Simple Storage Service (S3) is an object storage designed for scale, performance and durability. In the following example we&rsquo;ll use it
+to create a simple web app that offers an API to store and retrieve video files.</p>
+
+<h3 id="permissions">Permissions</h3>
+
+<p>Once you have your credentials, you can use it with every single service available. Give your user the permissions to the service you
+want to use with <a href="1" target="_blank">IAM</a> and you&rsquo;re ready to go. It&rsquo;s a good practice to create a Group with permissions, then assign the user to the
+group. For our use case we create a <code>S3</code> Group with the <code>AmazonS3FullAccess</code> permission and we add our user to that group.</p>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<p>We will use two endpoints:</p>
+
+<ul>
+<li><code>upload</code> will receive the file via POST and save it to S3</li>
+<li><code>download</code> will recover and return the file</li>
+</ul>
+
+<p>We will be using <a href="https://github.com/gin-gonic/gin" target="_blank">gin</a> instead of the standard <code>net/http</code> because it adds a lot of utilities for a negligible overhead.</p>
+
+<h4 id="upload">Upload</h4>
+
+<p>We assign a key to the request, if it does not exists and upload the file to S3.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">uploadHandler</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> = <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;key&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {
+		<span style="color:#a6e22e">key</span> = <span style="color:#a6e22e">ulid</span>.<span style="color:#a6e22e">MustNew</span>(<span style="color:#a6e22e">ulid</span>.<span style="color:#a6e22e">Timestamp</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()), <span style="color:#a6e22e">entropy</span>).<span style="color:#a6e22e">String</span>()
+	}
+	<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Request</span>.<span style="color:#a6e22e">Body</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s: upload error (%s)&#34;</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;internal error&#34;</span>})
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">reader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">b</span>)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">PutObject</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">s3</span>.<span style="color:#a6e22e">PutObjectInput</span>{
+		<span style="color:#a6e22e">Bucket</span>:        <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">Bucket</span>),
+		<span style="color:#a6e22e">Key</span>:           <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">key</span>),
+		<span style="color:#a6e22e">Body</span>:          <span style="color:#a6e22e">reader</span>,
+		<span style="color:#a6e22e">ContentLength</span>: <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">Int64</span>(<span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">Size</span>()),
+	})
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s: put error (%s)&#34;</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;internal error&#34;</span>})
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusCreated</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;key&#34;</span>: <span style="color:#a6e22e">key</span>})
+}</code></pre></div>
+<h4 id="download">Download</h4>
+
+<p>We retrieve the file from S3 and we return it to the user. In order to generate an unique ID we use the <a href="https://github.com/oklog/ulid" target="_blank">ULID</a> package.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">downloadHandler</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> = <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;key&#34;</span>)
+
+	<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">GetObject</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">s3</span>.<span style="color:#a6e22e">GetObjectInput</span>{
+		<span style="color:#a6e22e">Bucket</span>: <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">Bucket</span>),
+		<span style="color:#a6e22e">Key</span>:    <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">key</span>),
+	})
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s: get error (%s)&#34;</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;internal error&#34;</span>})
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Copy</span>(<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Writer</span>, <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Body</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s: download error (%s)&#34;</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;internal error&#34;</span>})
+		<span style="color:#66d9ef">return</span>
+	}
+}</code></pre></div>
+<p>Check <a href="https://github.com/DauMau/blog.vidsey.io/blob/master/_examples/awsandgo/aws_v1.go" target="_blank"><code>aws_v1.go</code></a> to see the full example.</p>
+
+<h3 id="extra-add-some-caching">Extra: add some caching</h3>
+
+<p>Even if S3 is fast, the user shouldn&rsquo;t wait to download the file each time. We can easily build a mechanism that downloads the file
+in a temporary directory and deletes it after a while. The idea is to download the file in a directory and delete it with a <code>time.Timer</code>, every time a file is requested again before its deletion the timer is reset.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cache</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span>
+	<span style="color:#a6e22e">timers</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#f92672">*</span><span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Timer</span>
+	<span style="color:#a6e22e">root</span>   <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">client</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">s3</span>.<span style="color:#a6e22e">S3</span>
+}
+
+<span style="color:#a6e22e">cache</span>.<span style="color:#a6e22e">timers</span>[<span style="color:#a6e22e">key</span>] = <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">AfterFunc</span>(<span style="color:#a6e22e">keep</span>, <span style="color:#66d9ef">func</span>() {
+	<span style="color:#a6e22e">cache</span>.<span style="color:#a6e22e">Lock</span>()
+	delete(<span style="color:#a6e22e">cache</span>.<span style="color:#a6e22e">timers</span>, <span style="color:#a6e22e">key</span>)
+	<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Remove</span>(<span style="color:#a6e22e">cachePath</span>(<span style="color:#a6e22e">key</span>))
+	<span style="color:#a6e22e">cache</span>.<span style="color:#a6e22e">Unlock</span>()
+})</code></pre></div>
+<p>The full code is available at <a href="https://github.com/DauMau/blog.vidsey.io/blob/master/_examples/awsandgo/aws_v2.go" target="_blank"><code>aws_v2.go</code></a>.</p>
+
+<p>Beside reduction in response time, this approach grants a huge advantage for our use case. We are using the <code>http.ServeFile</code>
+method, that calls <code>http.ServeContent</code> under the hood. As we can see it accepts an <code>io.ReadSeeker</code> (an <code>*os.File</code> in our case), because
+it parses the <code>Range</code> header, and returns just the selected range, instead of the whole file. This is perfect for a big video file
+because it makes possible to start playing the video before the whole content is downloaded, or allows you to skip from a part to
+another. The HTTP code for the response it&rsquo;s not <code>200 - OK</code>, but it&rsquo;s <code>206 - Partial Content</code> (more info on <a href="https://httpstatuses.com/206" target="_blank">206</a>).</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://klaidliadon.dev/tags/aws">aws</a></span><span class="tag"><a href="https://klaidliadon.dev/tags/go">go</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://klaidliadon.dev">Alex Guerrieri</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="https://klaidliadon.dev/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://klaidliadon.dev/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-118586162-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+    </body>
+</html>

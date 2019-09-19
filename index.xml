@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Warriors &gt; Code</title>
+    <link>https://klaidliadon.dev/</link>
+    <description>Recent content on Warriors &gt; Code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 19 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://klaidliadon.dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Switch to Hugo</title>
+      <link>https://klaidliadon.dev/blog/2019/09/switch-to-hugo/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://klaidliadon.dev/blog/2019/09/switch-to-hugo/</guid>
+      <description>I finally moved my website to Hugo. I am using a fork of the Hello Friend NG theme.
+Hugo is a powerful static website generator built in Go. It uses and extends the template package, allowing to create websites in minutes.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://klaidliadon.dev/about/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://klaidliadon.dev/about/</guid>
+      <description>Hoi 👋, name&amp;rsquo;s Alex.
+I am an Italian 🇮🇹 living in Madrid 🇪🇸. Software engineer, currently working for BBVA Next.
+I use Go to build scalable backends. Huge fan of low level optimizations.
+Books addict. RPG enthusiast. Casual Gamer. Textbook nerd.
+Here there are the main projects I&amp;rsquo;ve been working to lately.
+Books I am a published author with my first (and only) book came out in July 2019.</description>
+    </item>
+    
+    <item>
+      <title>Next</title>
+      <link>https://klaidliadon.dev/next/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://klaidliadon.dev/next/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS and Go</title>
+      <link>https://klaidliadon.dev/blog/2017/08/aws-and-go/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://klaidliadon.dev/blog/2017/08/aws-and-go/</guid>
+      <description>AWS owns the repository aws/aws-sdk-go, the Go version for its own API. There are several 3rd party libraries for many of the services that it offers, but there are some advantages in using the former:
+ it&amp;rsquo;s maintained by AWS itself it offers the most complete set of services (all of them) it&amp;rsquo;s created programmatically from AWS API, so it&amp;rsquo;s less prone to human error it&amp;rsquo;s always up to date with the latest API changes  Also:</description>
+    </item>
+    
+  </channel>
+</rss>
