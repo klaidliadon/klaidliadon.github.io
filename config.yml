@@ -59,7 +59,7 @@ params:
     - ''
 
   homeSubtitle: Alex Guerrieri - Software Crafter
-  gitUrl: "https://github.com/klaidliadon/klaidliadon.github.io/commit/"
+  rssType: blog
 
   customCSS: []
   customJS: []
