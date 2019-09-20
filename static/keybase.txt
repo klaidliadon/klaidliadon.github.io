@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/klaidliadon
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://klaidliadon.dev
+  * I am klaidliadon (https://keybase.io/klaidliadon) on keybase.
+  * I have a public key with fingerprint 3E5C FA2A 6773 7E10 05E5  3A28 0CEF 3C45 581A FF95
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01016bfe421ead6c7eba73511f72f02578b82c0ee2e7888f36a52c0ddbae3eac46a20a",
+      "fingerprint": "3e5cfa2a67737e1005e53a280cef3c45581aff95",
+      "host": "keybase.io",
+      "key_id": "0cef3c45581aff95",
+      "kid": "01016bfe421ead6c7eba73511f72f02578b82c0ee2e7888f36a52c0ddbae3eac46a20a",
+      "uid": "e4eb49db89d9a5aba9d8a40d84b06519",
+      "username": "klaidliadon"
+    },
+    "service": {
+      "hostname": "klaidliadon.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1557473709,
+  "expire_in": 157680000,
+  "prev": "a10faeedb4796ee795d149020c71dffab3130842f225730aa03ce9bdfafa1ba1",
+  "seqno": 41,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.0
+Comment: https://keybase.io/crypto
+
+yMM8AnicrVJtUBVVGL5chIkPR7oTyQgz0CowwB3Ys997QeX+yKTwAz+YatTr2d2z
+lxW4H7uXy1dYapKOWUONOhEqlAnkFFONWhHWRZEIwbQkCKhJ1GjEyfgSGox2rX75
+t/PnzDnv8zzv8z7zXlgYbAoPivw968lnl8wfCuoOHCsxbbmW8kElJrilcsxWiRWi
+BxcqkpDmcxQqEmbDcIADRpARRQAEJUZkkQBZkgZAZgkZJ2iWEzhCxBEiEMtxnEwy
+kNbfkiRARCIoUgwkcIhZMVlxOZHqURWXT5clES3KkIAMy5IsAjhOI5qEBIeLSCZF
+iqY5AGWZp3VigVszGLo5AWooXXHrf/rD8Y+9h/H/s++SB3KIQgLFSwLHSzykoQB5
+iYMULnGUgDM04A2ghlQXLEaG1yKoSEUKlNwurMqK6QW/IiIjW2OYh0HpEvLrCh7V
+7XOL7iK9WODzeTSbQfaVewx0KRIc/+o4BMUl6WnqDD9SNUVvYgM6UvQphjCgaZbS
+U8V5K4bKPIqKHIqBoFmGw/Vj9NHb2TAIcBkiJAkUyzMIsTwtAYrHCVxkgSTLUCAB
+iXMUIRN6XCQOIU6KiBckGcoQCBBgxmRelxuzUUD3CZ26pqY4XdBXoiKsqj2wZYEp
+KNwUGmI21swUHhb13/JxO6NMu186cjkv7JYpzUntTcm8FTr3fW79yvPOFwuyU8IW
+dX0WVvXb5l2z9YFVzNRG61DD8uC6m0l/XAs51/R1SEL52urXaivmX199/F2rfJH5
+taDZP3HlqN28bPKv5hfmapRtZX9eyY+P9X4SDPbMn/R0Dsx5eyy9XSOLNrSunP3Z
+3pAdTjr7zueMk+r6qe8Kjpvz0mb8vW8LU1haQti+ZajvTGViwnsdvfELns6v66KT
+7509Wv1ly1jZ4LbE6J51p823i1VQeELY7e1s+yanXQncXR4Z03JjianqiO+S85nP
+9xfKGtfT6L468yFWVB9rGb8KGj8+dXd1zSub9nXbadbSvfgxEJWq2lO2v3/jp8Vr
+DnETL3tvFncMfDr9xKvH+pdaoieTLTumu3asyQ1pDNobdy9iV8mQMtkWGZql9mdf
+Txyxu+9njA6MtHW+1V4bdV+b/dZ6/atHOsruzEsLS2ayWot7x8dr7M9VrE8+Ezhg
+z/hlrNQhniqPPpkzFbmilYk9XbrzYke6ndyj3VYbVqRu3n/wBEVqicMp8njLj8Hv
+VB9+4470VEVMZvNW67mkqGzlsj+QNFwhY28+vjYOf/7RA3Fxq8wXBicujeYiSzja
+OLzJmT8cn7w1g+r7wVeL2RrG6pp7hpyu6aVNTdvPTk9HbIiIsWTmsV9UNQ3VjoYO
+pvZPrWs6/NGI/DdmEsMg
+=yqwH
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/klaidliadon
+
+==================================================================

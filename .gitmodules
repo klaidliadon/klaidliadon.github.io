@@ -1,0 +1,7 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:klaidliadon/klaidliadon.github.io.git
+	branch = master
+[submodule "themes/hello-friend-ng"]
+	path = themes/hello-friend-ng
+	url = git@github.com:klaidliadon/hugo-theme-hello-friend-ng.git

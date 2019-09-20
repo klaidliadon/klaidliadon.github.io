@@ -1,0 +1,105 @@
+baseURL: "https://klaidliadon.dev"
+title: "Warriors > Code"
+
+DefaultContentLanguage: en
+
+theme: hello-friend-ng
+
+PygmentsCodeFences: true
+PygmentsStyle: monokai
+
+rssLimit: 10
+copyright: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+
+googleAnalytics: UA-118586162-1
+
+archetypeDir: archetypes
+contentDir: content
+dataDir: data
+layoutDir: layouts
+publishDir: public
+
+buildDrafts: false
+buildFuture: false
+buildExpored: false
+canonifyURLs: true
+
+enableRobotsTXT: true
+enableGitInfo: false
+enableEmoji: true
+enableMissingTranslationPlaceholders: false
+disableRSS: false
+disableSitemap: false
+disable404: false
+disableHugoGeneratorInject: false
+
+permalinks:
+  blog: '/blog/:year/:month/:title/'
+  pkg: '/:title'
+
+author:
+  name: Alex Guerrieri
+
+blackfriday:
+  hrefTargetBlank: true
+
+# taxonomies:
+#   tag: tags
+#   category: ''
+
+params:
+  dateform: 'Jan 2, 2006'
+  dateformShort: Jan 2
+  dateformNum: '2006-01-02'
+  dateformNumTime: '2006-01-02 15:04 -0700'
+
+  description: Homepage and Blog of Alex Guerrieri
+  keywords: "homepage, blog, software, programming, golang"
+  images:
+    - ''
+
+  homeSubtitle: Alex Guerrieri - Software Crafter
+  gitUrl: "https://github.com/klaidliadon/klaidliadon.github.io/commit/"
+
+  customCSS: []
+  customJS: []
+
+  justifyContent: false
+
+  contentTypeName: blog
+  defaultTheme: dark
+  themeColor: '#252627'
+  favicon:
+    color:
+      mask: "#222222"
+      msapplication: "#222222"
+      theme: "#ffffff"
+
+
+  logo:
+    logoText: $ cd /home/klaid
+    logoHomeLink: /
+
+  social:
+    - name: email
+      url: 'mailto:hoi@klaidliadon.dev'
+    - name: keybase
+      url: 'https://keybase.io/klaidliadon'
+    - name: github
+      url: 'https://github.com/klaidliadon'
+    - name: twitter
+      url: 'https://twitter.com/KlaidLiadon'
+    - name: linkedin
+      url: 'https://www.linkedin.com/in/klaidliadon/'
+
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: about/
+    - identifier: blog
+      name: Blog
+      url: blog/
+    - identifier: pkg
+      name: Pkgs
+      url: pkg/
