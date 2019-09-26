@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Alex Guerrieri ">
+<meta name="description"
+    content="" />
+<meta name="keywords" content="homepage, blog, software, programming, golang" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://klaidliadon.dev/provider/" />
+
+
+<title>
+    
+    Provider :: Warriors &gt; Code 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://klaidliadon.dev/main.min.6a7f69da285b13ff0649efbb10da7b227afef741e84872f120da910fc3f9c8e8.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://klaidliadon.dev/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://klaidliadon.dev/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://klaidliadon.dev/favicon-16x16.png">
+<link rel="manifest" href="https://klaidliadon.dev/site.webmanifest">
+<link rel="mask-icon" href="https://klaidliadon.dev/safari-pinned-tab.svg" color="#222222">
+<link rel="shortcut icon" href="https://klaidliadon.dev/favicon.ico">
+<meta name="msapplication-TileColor" content="#222222">
+<meta name="theme-color" content="#ffffff">
+<meta itemprop="name" content="Provider">
+<meta itemprop="description" content="">
+
+
+<meta itemprop="datePublished" content="2019-09-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="0">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://klaidliadon.dev"/>
+
+<meta name="twitter:title" content="Provider"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<meta property="article:published_time" content="2019-09-18 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+<meta name="go-import" content="klaidliadon.dev/provider git https://github.com/klaidliadon/provider.git">
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://klaidliadon.dev/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/klaid</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://klaidliadon.dev/about/">About</a></li><li><a href="https://klaidliadon.dev/blog/">Blog</a></li><li><a href="https://klaidliadon.dev/pkg/">Pkgs</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info pkg-info">
+            
+            </p>
+        </div>
+
+        <article>
+            
+            
+            <div class="post-content pkg-content">
+                <h1 id="provider">Provider</h1>
+
+<p><a href="https://godoc.org/klaidliadon.dev/provider" target="_blank"><img src="https://godoc.org/klaidliadon.dev/provider?status.svg" alt="GoDoc" /></a>
+<a href="https://travis-ci.org/klaidliadon/provider" target="_blank"><img src="https://travis-ci.org/klaidliadon/provider.svg?branch=master" alt="Build Status" /></a>
+<a href="http://codecov.io/github/klaidliadon/provider?branch=master" target="_blank"><img src="http://codecov.io/github/klaidliadon/provider/coverage.svg?branch=master" alt="codecov.io" /></a></p>
+
+<p>Provider is a go package that allows to use different sources to unmarshal or marshal a struct.</p>
+
+<p>It allows to use a structure with <code>Provider</code> and <code>Value</code> and treat the value according to the provider specified.</p>
+
+<h2 id="list-of-default-providers">List of default providers</h2>
+
+<h3 id="static-provider">Static provider</h3>
+
+<p>Static Provider expects athe value to be the JSON itself.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: {
+        <span style="color:#f92672">&#34;some&#34;</span>: <span style="color:#e6db74">&#34;json&#34;</span>
+    }
+}</code></pre></div>
+<h3 id="url-provider">URL provider</h3>
+
+<p>URL Provider requires the value to be an URL, will execute the HTTP request and use the response body for the unmarshal.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;http://example.com/content&#34;</span>
+}</code></pre></div>
+<h2 id="usage">Usage</h2>
+
+<p>It allows to use helpers in the JSON methods to use the package capabilities.
+A type can use a <code>Field</code>, or a <code>struct</code> containing several of them in the methods.
+Each <code>Field</code> will use the given provider.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Field is an helper used to inject Value
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Field</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">Ptr</span>  <span style="color:#f92672">*</span><span style="color:#66d9ef">interface</span>{}
+}</code></pre></div>
+<p>Field has a name, which is used for error message, and a pointer to the interface used for marshal and unmarshal.</p>
+
+<p>Let&rsquo;s take the following type, which returns a structure with two fields:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Str</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;str,omitempty&#34;`</span>
+	<span style="color:#a6e22e">Int</span> <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;int,omitempty&#34;`</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">toFields</span>() <span style="color:#66d9ef">interface</span>{} {
+	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">struct</span> {
+		<span style="color:#a6e22e">Str</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">Field</span> <span style="color:#e6db74">`json:&#34;str,omitempty&#34;`</span>
+		<span style="color:#a6e22e">Int</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">Field</span> <span style="color:#e6db74">`json:&#34;int,omitempty&#34;`</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">A</span>{
+		<span style="color:#a6e22e">Str</span>: <span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">NewField</span>(<span style="color:#e6db74">&#34;str&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">Str</span>),
+		<span style="color:#a6e22e">Int</span>: <span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">NewField</span>(<span style="color:#e6db74">&#34;int&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">Int</span>),
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>()) }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>()) }</code></pre></div>
+<p>It will use a provider for each field, decoding the following JSON:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;str&#34;</span>: {
+        <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
+        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;banana&#34;</span>
+    },
+    <span style="color:#f92672">&#34;int&#34;</span>: {
+        <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
+        <span style="color:#f92672">&#34;value&#34;</span> :<span style="color:#ae81ff">42</span>
+    }
+}</code></pre></div>
+<p>This other one uses just one provider for the structure itself. It requires to create a private type to strip the methods from the structure.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">B</span> <span style="color:#a6e22e">A</span>
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">toFields</span>() <span style="color:#66d9ef">interface</span>{} {
+	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">stripped</span> <span style="color:#a6e22e">B</span> <span style="color:#75715e">// strips methods, avoids recursion
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">NewField</span>(<span style="color:#e6db74">&#34;b&#34;</span>, (<span style="color:#f92672">*</span><span style="color:#a6e22e">stripped</span>)(<span style="color:#a6e22e">b</span>))
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>()) }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>()) }</code></pre></div>
+<p>It will result in a JSON that looks like the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: {
+        <span style="color:#f92672">&#34;str&#34;</span>: <span style="color:#e6db74">&#34;banana&#34;</span>,
+        <span style="color:#f92672">&#34;int&#34;</span>: <span style="color:#ae81ff">42</span>
+    }
+}</code></pre></div>
+            </div>
+            
+        </article>
+
+        <hr />
+
+        <div class="post-info pkg-info">
+                <p>
+                    <a href="https://github.com/klaidliadon/provider.git" title="">Source code</a> -
+                    <a href="https://godoc.org/klaidliadon.dev/provider" title="">Godoc</a>
+                </p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://klaidliadon.dev">Alex Guerrieri</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span><a href="https://klaidliadon.dev/blog/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://klaidliadon.dev/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-118586162-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+    </body>
+</html>
