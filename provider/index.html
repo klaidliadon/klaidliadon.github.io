@@ -151,6 +151,14 @@
     <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
     <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;http://example.com/content&#34;</span>
 }</code></pre></div>
+<h3 id="create-your-own-provider">Create your own provider</h3>
+
+<p>You can create your own using the <code>Provider</code> interface:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Provider</span> <span style="color:#66d9ef">interface</span> {
+	<span style="color:#a6e22e">Set</span>(<span style="color:#a6e22e">data</span> []<span style="color:#66d9ef">byte</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">error</span>
+}</code></pre></div>
+<p>You need to register it with a unique name using:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Register</span>(<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">p</span> <span style="color:#a6e22e">Provider</span>)</code></pre></div>
 <h2 id="usage">Usage</h2>
 
 <p>It allows to use helpers in the JSON methods to use the package capabilities.
@@ -180,8 +188,13 @@ Each <code>Field</code> will use the given provider.</p>
 	}
 }
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>()) }
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>()) }</code></pre></div>
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) { 
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>())
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> { 
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>())
+}</code></pre></div>
 <p>It will use a provider for each field, decoding the following JSON:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;str&#34;</span>: {
@@ -201,8 +214,13 @@ Each <code>Field</code> will use the given provider.</p>
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">NewField</span>(<span style="color:#e6db74">&#34;b&#34;</span>, (<span style="color:#f92672">*</span><span style="color:#a6e22e">stripped</span>)(<span style="color:#a6e22e">b</span>))
 }
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>()) }
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>()) }</code></pre></div>
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>())
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>())
+}</code></pre></div>
 <p>It will result in a JSON that looks like the following:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
