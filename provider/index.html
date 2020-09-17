@@ -26,7 +26,7 @@
 
 
 
-<link rel="stylesheet" href="https://klaidliadon.dev/main.min.6a7f69da285b13ff0649efbb10da7b227afef741e84872f120da910fc3f9c8e8.css">
+<link rel="stylesheet" href="https://klaidliadon.dev/main.min.bc1e3861f523514355e2d1841346b51b2bd936b12561bbac059996b70c9039ae.css">
 
 
 
@@ -41,11 +41,10 @@
 <meta name="theme-color" content="#ffffff">
 <meta itemprop="name" content="Provider">
 <meta itemprop="description" content="">
-
-
-<meta itemprop="datePublished" content="2019-09-18T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-18T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-09-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-18T00:00:00+00:00" />
 <meta itemprop="wordCount" content="0">
+<meta itemprop="image" content="https://klaidliadon.dev"/>
 
 
 
@@ -124,111 +123,102 @@
             
             <div class="post-content pkg-content">
                 <h1 id="provider">Provider</h1>
-
-<p><a href="https://godoc.org/klaidliadon.dev/provider" target="_blank"><img src="https://godoc.org/klaidliadon.dev/provider?status.svg" alt="GoDoc" /></a>
-<a href="https://travis-ci.org/klaidliadon/provider" target="_blank"><img src="https://travis-ci.org/klaidliadon/provider.svg?branch=master" alt="Build Status" /></a>
-<a href="http://codecov.io/github/klaidliadon/provider?branch=master" target="_blank"><img src="http://codecov.io/github/klaidliadon/provider/coverage.svg?branch=master" alt="codecov.io" /></a></p>
-
+<p><a href="https://godoc.org/klaidliadon.dev/provider"><img src="https://godoc.org/klaidliadon.dev/provider?status.svg" alt="GoDoc"></a>
+<a href="https://travis-ci.org/klaidliadon/provider"><img src="https://travis-ci.org/klaidliadon/provider.svg?branch=master" alt="Build Status"></a>
+<a href="http://codecov.io/github/klaidliadon/provider?branch=master"><img src="http://codecov.io/github/klaidliadon/provider/coverage.svg?branch=master" alt="codecov.io"></a></p>
 <p>Provider is a go package that allows to use different sources to unmarshal or marshal a struct.</p>
-
 <p>It allows to use a structure with <code>Provider</code> and <code>Value</code> and treat the value according to the provider specified.</p>
-
 <h2 id="list-of-default-providers">List of default providers</h2>
-
 <h3 id="static-provider">Static provider</h3>
-
 <p>Static Provider expects athe value to be the JSON itself.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
-    <span style="color:#f92672">&#34;value&#34;</span>: {
-        <span style="color:#f92672">&#34;some&#34;</span>: <span style="color:#e6db74">&#34;json&#34;</span>
-    }
-}</code></pre></div>
-<h3 id="url-provider">URL provider</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;provider&#34;</span><span class="p">:</span> <span class="s2">&#34;static&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;some&#34;</span><span class="p">:</span> <span class="s2">&#34;json&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="url-provider">URL provider</h3>
 <p>URL Provider requires the value to be an URL, will execute the HTTP request and use the response body for the unmarshal.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-    <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;http://example.com/content&#34;</span>
-}</code></pre></div>
-<h3 id="create-your-own-provider">Create your own provider</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;provider&#34;</span><span class="p">:</span> <span class="s2">&#34;url&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;http://example.com/content&#34;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="create-your-own-provider">Create your own provider</h3>
 <p>You can create your own using the <code>Provider</code> interface:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Provider</span> <span style="color:#66d9ef">interface</span> {
-	<span style="color:#a6e22e">Set</span>(<span style="color:#a6e22e">data</span> []<span style="color:#66d9ef">byte</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">error</span>
-}</code></pre></div>
-<p>You need to register it with a unique name using:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Register</span>(<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">p</span> <span style="color:#a6e22e">Provider</span>)</code></pre></div>
-<h2 id="usage">Usage</h2>
-
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Provider</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Set</span><span class="p">(</span><span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">v</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">error</span>
+<span class="p">}</span>
+</code></pre></div><p>You need to register it with a unique name using:</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Register</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">p</span> <span class="nx">Provider</span><span class="p">)</span>
+</code></pre></div><h2 id="usage">Usage</h2>
 <p>It allows to use helpers in the JSON methods to use the package capabilities.
 A type can use a <code>Field</code>, or a <code>struct</code> containing several of them in the methods.
 Each <code>Field</code> will use the given provider.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Field is an helper used to inject Value
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Field</span> <span style="color:#66d9ef">struct</span> {
-    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
-	<span style="color:#a6e22e">Ptr</span>  <span style="color:#f92672">*</span><span style="color:#66d9ef">interface</span>{}
-}</code></pre></div>
-<p>Field has a name, which is used for error message, and a pointer to the interface used for marshal and unmarshal.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Field is an helper used to inject Value
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Field</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Name</span> <span class="kt">string</span>
+	<span class="nx">Ptr</span>  <span class="o">*</span><span class="kd">interface</span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div><p>Field has a name, which is used for error message, and a pointer to the interface used for marshal and unmarshal.</p>
 <p>Let&rsquo;s take the following type, which returns a structure with two fields:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">struct</span> {
-	<span style="color:#a6e22e">Str</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;str,omitempty&#34;`</span>
-	<span style="color:#a6e22e">Int</span> <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;int,omitempty&#34;`</span>
-}
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Str</span> <span class="kt">string</span> <span class="s">`json:&#34;str,omitempty&#34;`</span>
+	<span class="nx">Int</span> <span class="kt">int</span>    <span class="s">`json:&#34;int,omitempty&#34;`</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">toFields</span>() <span style="color:#66d9ef">interface</span>{} {
-	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">struct</span> {
-		<span style="color:#a6e22e">Str</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">Field</span> <span style="color:#e6db74">`json:&#34;str,omitempty&#34;`</span>
-		<span style="color:#a6e22e">Int</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">Field</span> <span style="color:#e6db74">`json:&#34;int,omitempty&#34;`</span>
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">A</span>{
-		<span style="color:#a6e22e">Str</span>: <span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">NewField</span>(<span style="color:#e6db74">&#34;str&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">Str</span>),
-		<span style="color:#a6e22e">Int</span>: <span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">NewField</span>(<span style="color:#e6db74">&#34;int&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">Int</span>),
-	}
-}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">A</span><span class="p">)</span> <span class="nf">toFields</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+	<span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+		<span class="nx">Str</span> <span class="o">*</span><span class="nx">provider</span><span class="p">.</span><span class="nx">Field</span> <span class="s">`json:&#34;str,omitempty&#34;`</span>
+		<span class="nx">Int</span> <span class="o">*</span><span class="nx">provider</span><span class="p">.</span><span class="nx">Field</span> <span class="s">`json:&#34;int,omitempty&#34;`</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">A</span><span class="p">{</span>
+		<span class="nx">Str</span><span class="p">:</span> <span class="nx">provider</span><span class="p">.</span><span class="nf">NewField</span><span class="p">(</span><span class="s">&#34;str&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">a</span><span class="p">.</span><span class="nx">Str</span><span class="p">),</span>
+		<span class="nx">Int</span><span class="p">:</span> <span class="nx">provider</span><span class="p">.</span><span class="nf">NewField</span><span class="p">(</span><span class="s">&#34;int&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">a</span><span class="p">.</span><span class="nx">Int</span><span class="p">),</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) { 
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>())
-}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">A</span><span class="p">)</span> <span class="nf">MarshalJSON</span><span class="p">()</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span> 
+	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nf">toFields</span><span class="p">())</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">A</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> { 
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">toFields</span>())
-}</code></pre></div>
-<p>It will use a provider for each field, decoding the following JSON:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;str&#34;</span>: {
-        <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
-        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;banana&#34;</span>
-    },
-    <span style="color:#f92672">&#34;int&#34;</span>: {
-        <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
-        <span style="color:#f92672">&#34;value&#34;</span> :<span style="color:#ae81ff">42</span>
-    }
-}</code></pre></div>
-<p>This other one uses just one provider for the structure itself. It requires to create a private type to strip the methods from the structure.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">B</span> <span style="color:#a6e22e">A</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">A</span><span class="p">)</span> <span class="nf">UnmarshalJSON</span><span class="p">(</span><span class="nx">v</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span> 
+	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nf">toFields</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div><p>It will use a provider for each field, decoding the following JSON:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;str&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;provider&#34;</span><span class="p">:</span> <span class="s2">&#34;static&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;banana&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;int&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;provider&#34;</span><span class="p">:</span> <span class="s2">&#34;static&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;value&#34;</span> <span class="p">:</span><span class="mi">42</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>This other one uses just one provider for the structure itself. It requires to create a private type to strip the methods from the structure.</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">B</span> <span class="nx">A</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">toFields</span>() <span style="color:#66d9ef">interface</span>{} {
-	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">stripped</span> <span style="color:#a6e22e">B</span> <span style="color:#75715e">// strips methods, avoids recursion
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">provider</span>.<span style="color:#a6e22e">NewField</span>(<span style="color:#e6db74">&#34;b&#34;</span>, (<span style="color:#f92672">*</span><span style="color:#a6e22e">stripped</span>)(<span style="color:#a6e22e">b</span>))
-}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">B</span><span class="p">)</span> <span class="nf">toFields</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+	<span class="kd">type</span> <span class="nx">stripped</span> <span class="nx">B</span> <span class="c1">// strips methods, avoids recursion
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">provider</span><span class="p">.</span><span class="nf">NewField</span><span class="p">(</span><span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="p">(</span><span class="o">*</span><span class="nx">stripped</span><span class="p">)(</span><span class="nx">b</span><span class="p">))</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">MarshalJSON</span>() ([]<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">error</span>) {
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>())
-}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">B</span><span class="p">)</span> <span class="nf">MarshalJSON</span><span class="p">()</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nf">toFields</span><span class="p">())</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">B</span>) <span style="color:#a6e22e">UnmarshalJSON</span>(<span style="color:#a6e22e">v</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#66d9ef">error</span> {
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toFields</span>())
-}</code></pre></div>
-<p>It will result in a JSON that looks like the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;provider&#34;</span>: <span style="color:#e6db74">&#34;static&#34;</span>,
-    <span style="color:#f92672">&#34;value&#34;</span>: {
-        <span style="color:#f92672">&#34;str&#34;</span>: <span style="color:#e6db74">&#34;banana&#34;</span>,
-        <span style="color:#f92672">&#34;int&#34;</span>: <span style="color:#ae81ff">42</span>
-    }
-}</code></pre></div>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">B</span><span class="p">)</span> <span class="nf">UnmarshalJSON</span><span class="p">(</span><span class="nx">v</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nf">toFields</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div><p>It will result in a JSON that looks like the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;provider&#34;</span><span class="p">:</span> <span class="s2">&#34;static&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;str&#34;</span><span class="p">:</span> <span class="s2">&#34;banana&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;int&#34;</span><span class="p">:</span> <span class="mi">42</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
             </div>
             
         </article>
@@ -251,7 +241,7 @@ Each <code>Field</code> will use the given provider.</p>
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2019</span>
+            <span>&copy; 2020</span>
             
                 <span><a href="https://klaidliadon.dev">Alex Guerrieri</a></span>
             

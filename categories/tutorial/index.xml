@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tutorial on Warriors &gt; Code</title>
@@ -6,11 +6,7 @@
     <description>Recent content in tutorial on Warriors &gt; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Aug 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://klaidliadon.dev/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 07 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://klaidliadon.dev/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS and Go</title>
       <link>https://klaidliadon.dev/blog/2017/08/aws-and-go/</link>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Warriors &gt; Code</title>
@@ -6,10 +6,15 @@
     <description>Recent content on Warriors &gt; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 19 Sep 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://klaidliadon.dev/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://klaidliadon.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sheet Sync</title>
+      <link>https://klaidliadon.dev/sheet-sync/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://klaidliadon.dev/sheet-sync/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Switch to Hugo</title>
@@ -28,11 +33,11 @@ Hugo is a powerful static website generator built in Go. It uses and extends the
       
       <guid>https://klaidliadon.dev/about/</guid>
       <description>Hoi 👋, name&amp;rsquo;s Alex.
-I am an Italian 🇮🇹 living in Madrid 🇪🇸. Software engineer, currently working for BBVA Next.
+I am an Italian 🇮🇹 living in Madrid 🇪🇸. Software engineer, currently working for Clearly.
 I use Go to build scalable backends. Huge fan of low level optimizations.
 Books addict. RPG enthusiast. Casual Gamer. Textbook nerd.
 Here there are the main projects I&amp;rsquo;ve been working to lately.
-Books I am a published author with my first (and only) book came out in July 2019.</description>
+ Books I am a published author with my first (and only) book came out in July 2019.</description>
     </item>
     
     <item>
