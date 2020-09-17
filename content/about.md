@@ -8,7 +8,7 @@ aliases: ["about-me","contact"]
 
 Hoi :wave:, name's Alex.
 
-I am an Italian :it: living in **Madrid** :es:. Software engineer, currently working for [BBVA Next](https://www.bbvanexttechnologies.com "BBVA Next").
+I am an Italian :it: living in **Madrid** :es:. Software engineer, currently working for [Clearly](https://www.helloclearly.com/ "Clearly").
 
 I use [Go](https://golang.org "Golang") to build scalable backends. Huge fan of low level optimizations.
 
