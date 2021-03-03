@@ -33,11 +33,12 @@ Hugo is a powerful static website generator built in Go. It uses and extends the
       
       <guid>https://klaidliadon.dev/about/</guid>
       <description>Hoi 👋, name&amp;rsquo;s Alex.
-I am an Italian 🇮🇹 living in Madrid 🇪🇸. Software engineer, currently working for Clearly.
+I am an Italian, working remotely. Software engineer, currently working for Clearly.
 I use Go to build scalable backends. Huge fan of low level optimizations.
 Books addict. RPG enthusiast. Casual Gamer. Textbook nerd.
 Here there are the main projects I&amp;rsquo;ve been working to lately.
- Books I am a published author with my first (and only) book came out in July 2019.</description>
+ Books I am a published author with my first (and only) book came out in July 2019.
+ Hands-on: System programming with Go is published by Packt and can be found on amazon.</description>
     </item>
     
     <item>
