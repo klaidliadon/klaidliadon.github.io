@@ -4,11 +4,11 @@ date: "2019-09-18"
 aliases: ["about-me","contact"]
 ---
 
-{{< image src="/me.png" alt="Alex Guerrieri" position="center" style="height:256px;">}}
+{{< figure src="/me.png" alt="Alex Guerrieri" class="center" height="256px">}}
 
 Hoi :wave:, name's Alex.
 
-I am an **Italian**, working **remotely**. Software engineer, currently working for [Clearly](https://www.helloclearly.com/ "Clearly").
+I am an **Italian**, working **remotely**, currently working for [Horizon Blockchain Games](https://horizon.io/ "Horizon Blockchain Games").
 
 I use [Go](https://golang.org "Golang") to build scalable backends. Huge fan of low level optimizations.
 
