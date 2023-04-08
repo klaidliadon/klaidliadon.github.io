@@ -8,7 +8,7 @@ aliases: ["about-me","contact"]
 
 Hoi :wave:, name's Alex.
 
-I am an **Italian**, working **remotely**, currently working for [Horizon Blockchain Games](https://horizon.io/ "Horizon Blockchain Games").
+I am an **Italian**, working **remotely**, currently working with [Horizon Blockchain Games](https://horizon.io/ "Horizon Blockchain Games").
 
 I use [Go](https://golang.org "Golang") to build scalable backends. Huge fan of low level optimizations.
 
