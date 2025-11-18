@@ -13,7 +13,7 @@
 
         <article>
             {{if $goget.readme}}
-            {{ $readme := getJSON $goget.readme}}
+            {{ $readme := resources.GetRemote $goget.readme | transform.Unmarshal }}
             <div class="post-content pkg-content">
                 {{ base64Decode $readme.content | markdownify }}
             </div>
