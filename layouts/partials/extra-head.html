@@ -1,3 +1,5 @@
-{{- with (index .Page.Params "go-get") -}}
+{{- range where .Site.Pages "Section" "pkg" -}}
+{{- with (index .Params "go-get") -}}
         <meta name="go-import" content="{{.pkg}} {{.vcs}} {{.url}}"/>
+{{ end -}}
 {{- end -}}
