@@ -17,3 +17,13 @@ pdf:
 			-V monofont:"cascadia.ttf" \
 			-o $(pdf); \
 	)
+
+pkg:
+	@$(foreach f, $(filter-out content/pkg/_index.md,$(wildcard content/pkg/*.md)), \
+		$(eval dir = $(basename $(notdir $(f)))) \
+		mkdir -p ./static/$(dir); \
+		$(eval pkg_data = $(shell grep -A4 'go-get:' $(f) | grep 'pkg:' | sed 's/.*"\(.*\)".*/\1/')) \
+		$(eval vcs_data = $(shell grep -A4 'go-get:' $(f) | grep 'vcs:' | sed 's/.*"\(.*\)".*/\1/')) \
+		$(eval url_data = $(shell grep -A4 'go-get:' $(f) | grep 'url:' | sed 's/.*"\(.*\)".*/\1/')) \
+		echo '<html><head><meta name="go-import" content="$(pkg_data) $(vcs_data) $(url_data)"></head></html>' > ./static/$(dir)/index.html; \
+	)

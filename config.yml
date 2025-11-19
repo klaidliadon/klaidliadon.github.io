@@ -35,7 +35,7 @@ disableHugoGeneratorInject: false
 
 permalinks:
   blog: '/blog/:year/:month/:title/'
-  pkg: '/:title'
+  pkg: '/pkg/:title'
 
 author:
   name: Alex Guerrieri
